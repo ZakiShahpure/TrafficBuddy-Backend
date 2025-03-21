@@ -1,6 +1,10 @@
 const DEEP_LINK_URL = 'gpsmapcamera://open';
 const PLAY_STORE_LINK = 'https://play.google.com/store/apps/details?id=com.gpsmapcamera.geotagginglocationonphoto';
 
+function getJoinFormUrl(userNumber) {
+    return `https://your-ngrok-url/join.html?userId=${encodeURIComponent(userNumber)}`;
+}
+
 module.exports = {
   /**
    * Get the deep link or Play Store link based on the user's device.
@@ -67,6 +71,7 @@ Play Store: ${PLAY_STORE_LINK}`;
       
 📱 *📷 अहवाल सादर करा 📷*
 👇👇👇👇👇👇👇👇
+
 ${captureUrl}
 👆👆👆👆👆👆👆👆
 
@@ -95,5 +100,7 @@ Tap the link above to submit your location and photo.`;
       return `*${reportTypeName} अहवाल*\n\n${captureUrl}\n\nवरील लिंकवर क्लिक करा.`;
     }
     return `*${reportTypeName} Report*\n\n${captureUrl}\n\nClick on the link above.`;
-  }
+  },
+
+  getJoinFormUrl
 };

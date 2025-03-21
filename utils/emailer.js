@@ -154,6 +154,13 @@ const sendQueryNotification = async (query) => {
   }
 };
 
+async function sendJoinNotification(userId, teamName, description) {
+  // Logic to send email notification
+  const emailContent = `User ${userId} wants to join the team ${teamName}. Description: ${description}`;
+  // Send email using nodemailer or any other email service
+}
+
 module.exports = {
-  sendQueryNotification
+  sendQueryNotification,
+  sendJoinNotification
 };

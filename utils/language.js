@@ -70,40 +70,71 @@ const translations = {
   'mr': (instructionMessage) => `${instructionMessage}`
 },
     
-    // Specific report type responses
-    'REPORT_RESPONSE': {
-      'en': (reportType, hasImage) => `Thank you for your ${reportType.toLowerCase()} report. It has been recorded.${hasImage ? ' Image received and uploaded.' : ''}\n\nType "menu" to return to the main menu.`,
-      'mr': (reportType, hasImage) => `तुमच्या ${getMarathiReportType(reportType)} अहवालाबद्दल धन्यवाद. ते नोंदवले गेले आहे.${hasImage ? ' इमेज प्राप्त झाली आणि अपलोड केली गेली.' : ''}\n\nमुख्य मेनूकडे परत जाण्यासाठी "menu" टाइप करा.`
-    },
+// Specific report type responses
+'REPORT_RESPONSE': {
+  'en': (reportType, hasImage) => `Thank you for your ${reportType.toLowerCase()} report. It has been recorded.${hasImage ? ' Image received and uploaded.' : ''}\n\nType "menu" to return to the main menu.`,
+  'mr': (reportType, hasImage) => `तुमच्या ${getMarathiReportType(reportType)} अहवालाबद्दल धन्यवाद. ते नोंदवले गेले आहे.${hasImage ? ' इमेज प्राप्त झाली आणि अपलोड केली गेली.' : ''}\n\nमुख्य मेनूकडे परत जाण्यासाठी "menu" टाइप करा.`
+},
+
+// Traffic signal information
+'TRAFFIC_SIGNAL_INFO': {
+  'en': (instructionMessage) => `${instructionMessage}`,
+  'mr': (instructionMessage) => `${instructionMessage}`
+},
+
+// Join team request
+'JOIN_REQUEST': {
+  'en': (joinUrl) => {
+    console.log('Generating join request message with URL:', joinUrl);
+    return `📝 *Click the link below to join our team:*
+
+👥 *JOIN TRAFFIC BUDDY TEAM*
+👇👇👇👇👇👇👇👇
+${joinUrl || '[Error: Missing URL]'}
+👆👆👆👆👆👆👆👆
+
+Tap the link above to submit your application.`;
+      },
+      'mr': (joinUrl) => {
+        console.log('Generating Marathi join request message with URL:', joinUrl);
+        return `📝 *आमच्या टीममध्ये सामील होण्यासाठी खालील लिंकवर क्लिक करा:*
     
-    // Traffic signal information
-    'TRAFFIC_SIGNAL_INFO': {
-      'en': 'Here\'s how traffic signals work:\n\n🔴 Red: Stop completely\n🟡 Yellow: Prepare to stop\n🟢 Green: Proceed with caution\n\nSend "menu" to return to the main menu.',
-      'mr': 'वाहतूक सिग्नल कसे काम करतात:\n\n🔴 लाल: पूर्णपणे थांबा\n🟡 पिवळा: थांबण्यासाठी तयार रहा\n🟢 हिरवा: सावधपणे पुढे जा\n\nमुख्य मेनूकडे परत जाण्यासाठी "menu" पाठवा.'
+👥 *ट्रॅफिक बडी टीममध्ये सामील व्हा*
+👇👇👇👇👇👇👇👇
+${joinUrl || '[Error: Missing URL]'}
+👆👆👆👆👆👆👆👆
+
+अर्ज सादर करण्यासाठी वरील लिंकवर टॅप करा.`;
+      }
     },
-    
-    // Join team request
+
     'JOIN_REQUEST': {
-      'en': 'Please provide your information in this format:\nName: [Your Name]\nEmail: [Your Email]\nPhone: [Your Phone]\nLocation: [Your Location]',
-      'mr': 'कृपया तुमची माहिती या फॉरमॅटमध्ये प्रदान करा:\nनाव: [तुमचे नाव]\nईमेल: [तुमचा ईमेल]\nफोन: [तुमचा फोन]\nस्थान: [तुमचा स्थान]'
+      'en': (joinUrl) => {
+        // Simple direct link format
+        return `📝 *Click below to join our team:*\n\n${joinUrl}\n\nTap the link to continue.`;
+      },
+      'mr': (joinUrl) => {
+        // Simple direct link format in Marathi
+        return `📝 *आमच्या टीममध्ये सामील होण्यासाठी खालील लिंक वर क्लिक करा:*\n\n${joinUrl}\n\nपुढे जाण्यासाठी लिंक वर टॅप करा.`;
+      }
     },
     
     'JOIN_RESPONSE': {
       'en': 'Thank you for your interest in joining Traffic Buddy! Our team will review your information and contact you soon.\n\nType "menu" to return to the main menu.',
       'mr': 'ट्रॅफिक बडीमध्ये सामील होण्याच्या तुमच्या इच्छेबद्दल धन्यवाद! आमची टीम तुमची माहिती तपासेल आणि लवकरच तुमच्याशी संपर्क साधेल.\n\nमुख्य मेनूकडे परत जाण्यासाठी "menu" टाइप करा.'
     },
+
+    'JOIN_TEAM_INSTRUCTIONS': {
+      'en': (joinUrl) => `📝 *Click the link below to join our team:*
     
-    // Language selection prompt
-    'LANGUAGE_PROMPT': {
-      'en': `*Welcome to Traffic Buddy!* 🚦
-  
-  Select your preferred language:
-  1️⃣ English
-  2️⃣ मराठी (Marathi)
-  
-  Reply with 1 or 2.`,
-      'mr': `*ट्रॅफिक बडी मध्ये आपले स्वागत आहे!* 🚦
-  
+👥 *JOIN TRAFFIC BUDDY TEAM*
+👇👇👇👇👇👇👇👇
+${joinUrl}
+👆👆👆👆👆👆👆👆
+
+Tap the link above to submit your application. You'll need to:
+1. Select your preferred team
+2. Provide your details
   तुमची पसंतीची भाषा निवडा:
   1️⃣ इंग्रजी (English)
   2️⃣ मराठी
